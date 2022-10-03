@@ -55,10 +55,10 @@ function getReadStatus() {
 
 function populateTable() {
     tbody.textContent = '';
+    
     myLibrary.forEach((book) => {
-        console.log(book);
-        console.log(book.title, book.author, book.pages, book.read);
         let newRow = document.createElement('tr');
+        let index = myLibrary.indexOf(book);
         
         Object.keys(book).forEach(prop => {
             let dataCol = document.createElement('td');
@@ -67,9 +67,30 @@ function populateTable() {
             newRow.appendChild(dataCol);
             
         });
+
+        let readBtn = document.createElement('button');
+        readBtn.textContent = 'Change status';
+        readBtn.addEventListener('click', () => {
+            if (myLibrary[index]['read'] == true) myLibrary[index]['read'] = false;
+            else myLibrary[index]['read'] = true;
+            populateTable();
+        });
+        newRow.appendChild(readBtn);
+        
+        
+        let delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.addEventListener('click', () => {
+            myLibrary.splice(index, 1);
+            populateTable();
+        });
+        newRow.appendChild(delBtn);
+
         tbody.appendChild(newRow);
     });
 }
+
+
 
 function hide() {
     newBookBtn.classList.toggle('hidden');
