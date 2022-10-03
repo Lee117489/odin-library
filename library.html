@@ -8,51 +8,54 @@
     <title>Library</title>
 </head>
 <body>
-    <header>
-        <h1>Library</h1>
-    </header>
-    <main>
-        <div class="table">
-            <table>
-                <thead>
-                    <tr>
-                        <td>Title</td>
-                        <td>Author</td>
-                        <td>Pages</td>
-                        <td>Read</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <button id="new">Add book</button>
-        
-        </div>
-        <div class="form hidden">
-            <h2>Add/Edit a book</h2>
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" id="author" placeholder="Author">
-            <input type="number" id="pages" placeholder="Pages" min="0">
-            <fieldset class="radio">
-                <legend>Have you read it?</legend>
-                <label for="yes">
-                    <input type="radio" name="read" value="yes" id="yes" checked>
-                    <span>Yes</span>
-                </label>
-                <label for="no">
-                    <input type="radio" name="read" value="no" id="no">
-                    <span>No</span>
-                </label>
-            </fieldset>
-            <div class="buttons">
-                <button id="submit">Submit</button>
-                <button id="return">Return</button>
+    <div class="container">
+        <header>
+            <h1>Library</h1>
+        </header>
+        <main>
+            
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Title</td>
+                            <td>Author</td>
+                            <td>Pages</td>
+                            <td>Read</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </main>
+            <button id="new">Add book</button>
+            
+            <div class="form hidden">
+                <h2>Add a book</h2>
+                <input type="text" id="title" placeholder="Title">
+                <input type="text" id="author" placeholder="Author">
+                <input type="number" id="pages" placeholder="Pages" min="0">
+                <fieldset class="radio">
+                    <legend>Have you read it?</legend>
+                    <label for="yes">
+                        <input type="radio" name="read" value="yes" id="yes" checked>
+                        <span>Yes</span>
+                    </label>
+                    <label for="no">
+                        <input type="radio" name="read" value="no" id="no">
+                        <span>No</span>
+                    </label>
+                </fieldset>
+                <div class="buttons">
+                    <button id="submit">Submit</button>
+                    <button id="return">Return</button>
+                </div>
+            </div>
+        </main>
+    </div>
     <script src="objects.js"></script>
 </body>
 </html>

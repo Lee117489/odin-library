@@ -75,16 +75,20 @@ function populateTable() {
             else myLibrary[index]['read'] = true;
             populateTable();
         });
-        newRow.appendChild(readBtn);
+        let readBtnCol = document.createElement('td');
+        readBtnCol.appendChild(readBtn)
+        newRow.appendChild(readBtnCol);
         
         
         let delBtn = document.createElement('button');
+        let delBtnCol = document.createElement('td');
         delBtn.textContent = 'Delete';
         delBtn.addEventListener('click', () => {
             myLibrary.splice(index, 1);
             populateTable();
         });
-        newRow.appendChild(delBtn);
+        delBtnCol.appendChild(delBtn);
+        newRow.appendChild(delBtnCol);
 
         tbody.appendChild(newRow);
     });
@@ -93,9 +97,10 @@ function populateTable() {
 
 
 function hide() {
-    newBookBtn.classList.toggle('hidden');
-    table.classList.toggle('hidden');
     form.classList.toggle('hidden');
+    table.classList.toggle('hidden');
+    newBookBtn.classList.toggle('hidden');
+    
 }
 
 function clearForm() {
