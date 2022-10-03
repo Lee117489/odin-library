@@ -1,0 +1,13 @@
+body {
+    background-color: #1e2227;
+    color: #fff;
+    
+}
+
+header {
+    color: #ff8000;
+}
+
+.hidden {
+    display: none;
+}
