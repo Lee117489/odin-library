@@ -24,28 +24,38 @@ submitBtn.addEventListener('click', addBookToLibrary);
 returnBtn.addEventListener('click', hide);
 newBookBtn.addEventListener('click', hide);
 
-
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    info() {
+        return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.read;
+    }
 }
 
-Book.prototype.info = function() {
-    return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.read;
-}
 
 function addBookToLibrary() {
     let title = titleInput.value;
     let author = authorInput.value;
     let pages = pagesInput.value;
     let read = getReadStatus();
+
+    if (!validInput(title, author, pages)) return;
+
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     populateTable();
     hide();
     clearForm();
+}
+
+function validInput(title, author, pages) {
+    if (title == '' || author == '') return false;
+    if (pages <= 0) return false;
+    else return true;
 }
 
 function getReadStatus() {
@@ -71,12 +81,11 @@ function populateTable() {
         let readBtn = document.createElement('button');
         readBtn.textContent = 'Change status';
         readBtn.addEventListener('click', () => {
-            if (myLibrary[index]['read'] == true) myLibrary[index]['read'] = false;
-            else myLibrary[index]['read'] = true;
+            book.read = !book.read;            
             populateTable();
         });
         let readBtnCol = document.createElement('td');
-        readBtnCol.appendChild(readBtn)
+        readBtnCol.appendChild(readBtn);
         newRow.appendChild(readBtnCol);
         
         
